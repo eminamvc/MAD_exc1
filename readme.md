@@ -8,18 +8,51 @@
 
 ## Questions
 ### Describe how Kotlin handles null safety. What are nullable types and non-null types in Kotlin? (0,5 points)
-
 <span style="color:blue">Provide your answer here! </span>
-> Note: you can also use code snippets to illustrate your answer. 
-
+> Note: you can also use code snippets to illustrate your answer.
 ```kotlin 
 // example code snippet
 val a: String = "value" // non-null type
 ```
+Kotlin has a zero-safety system, as this is a problem with other programming languages. 
+In Kotlin, all variable types are non-nullable by default and would lead to 
+a compilation error if you try to assign a null value. If you declare a variable as a string, 
+it can only contain string values, but not null.
+
+But there are nullable types: variable types in Kotlin that can hold a null value.
+They are identified by adding a question mark (?) after the type name. 
+Example: String? --> can contain either a string value or null.
+
+There are several ways to deal with nullable types.
+First way: '?.' --> is used to safely call methods or properties of a nullable object. 
+If the object is null, the call is ignored and null is returned.
+
+Second way: '?:' --> is used to provide a default value if an expression returns null.
+
+Third way: '!!' --> to trigger a null pointer exception if the variable is null after all. 
+
+Through these techniques, Kotlin helps us to clearly distinguish between nullable and non-nullable types 
+and promotes a safer handling of null.
 
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)
-
 <span style="color:blue">Provide your answer here!</span>
+
+By using lambda expressions and higher order functions, Kotlin code can be made more compact, readable and flexible.
+
+Lambda Expressions: They are anonymous functions that can be used to define blocks of code that can be executed later. 
+They make it possible to write functions briefly and clearly without having to name them.
+Example: val sumOfAll = { x: Int, y: Int -> x + y }
+The lambda expression is enclosed in curly brackets and may have parameters that are listed by an arrow ->.
+
+Higher order functions: take other functions as parameters or return them as results. 
+These are particularly useful in Kotlin because they allow you to be very expressive and flexible with functions.
+Example: fun compute(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+return operation(a, b)
+}
+
+Functions inside a variable:You can reuse the same function in different parts of the program without having to rewrite the code. 
+By saving a function in a variable, you can pass functions as parameters to other functions, which can be useful when using higher order functions. 
+In addition, you can delay the execution of a function by saving it in a variable and calling it later, which is useful in situations where you need the result of an operation at a later time.
 
 ### Provide a solution for the following number guessing game inside `App.kt`. (3 points)
 
